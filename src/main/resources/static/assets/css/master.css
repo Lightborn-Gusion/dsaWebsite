@@ -55,9 +55,7 @@ body.dark-mode .card strong {
 # 2. Light Mode Overrides (Forces the Pink Theme)
 --------------------------------------------------------------*/
 body:not(.dark-mode) {
-    --nav-mobile-background-color: #F17FC5;
-    --nav-dropdown-hover-color: #F17FC5;
-    --nav-hover-color: #8A0A5B;
+    --nav-mobile-background-color: #ffffff; /* White background for mobile menu */
 }
 
 body:not(.dark-mode) .header,
@@ -66,12 +64,62 @@ body:not(.dark-mode) .footer {
     border: none !important;
 }
 
-/* Force Logo and Default Nav Links to White */
+/* Force Logo to White */
 .header .logo h1,
-.header .logo a,
-body:not(.dark-mode) .navmenu a {
+.header .logo a {
     color: #ffffff !important;
     text-decoration: none !important;
+}
+
+/* =========================================
+   DESKTOP MENU COLORS (Large Screens)
+   ========================================= */
+@media (min-width: 1200px) {
+    /* Top-level links on the pink header -> WHITE */
+    body:not(.dark-mode) .navmenu > ul > li > a {
+        color: #ffffff !important;
+        font-weight: 500 !important;
+    }
+    body:not(.dark-mode) .navmenu > ul > li > a:hover,
+    body:not(.dark-mode) .navmenu > ul > li:hover > a,
+    body:not(.dark-mode) .navmenu > ul > li > a.active {
+        color: #8A0A5B !important; /* Dark berry hover so it shows on pink */
+    }
+
+    /* Dropdown links inside the white box -> BLACK */
+    body:not(.dark-mode) .navmenu .dropdown ul {
+        background-color: #ffffff !important;
+    }
+    body:not(.dark-mode) .navmenu .dropdown ul a {
+        color: #222222 !important;
+    }
+    body:not(.dark-mode) .navmenu .dropdown ul a:hover {
+        color: #d81b60 !important; /* Deep pink hover */
+        background-color: #fce4ec !important; /* Soft pink background */
+    }
+}
+
+/* =========================================
+   MOBILE MENU COLORS (Phones & Tablets)
+   ========================================= */
+@media (max-width: 1199px) {
+    /* Since the mobile menu is a white box, ALL links must be BLACK */
+    body:not(.dark-mode) .navmenu a {
+        color: #222222 !important;
+        font-weight: 500 !important;
+    }
+    body:not(.dark-mode) .navmenu a:hover,
+    body:not(.dark-mode) .navmenu .active,
+    body:not(.dark-mode) .navmenu .active:focus {
+        color: #d81b60 !important; /* Deep pink hover */
+        background-color: #fce4ec !important; /* Soft pink background */
+    }
+
+    /* Make the little dropdown arrows match */
+    body:not(.dark-mode) .navmenu a i {
+        background-color: #fce4ec !important;
+        color: #d81b60 !important;
+    }
 }
 
 /*--------------------------------------------------------------
@@ -135,29 +183,33 @@ main.fade-out-exit {
 # 5. MOBILE MENU & OVERLAP FIX (BULLETPROOF)
 --------------------------------------------------------------*/
 @media (max-width: 1199px) {
-    /* Create a permanent anchor point so icons can't fly away */
     .header {
         position: relative !important;
     }
 
-    /* Pin the Hamburger Menu permanently to the Top Right */
+    /* Pin the Hamburger Menu - PERFECTLY CENTERED VERTICALLY */
     .mobile-nav-toggle,
     .mobile-nav-active .mobile-nav-toggle {
         position: absolute !important;
-        top: 20px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important; /* Magic vertical centering */
         right: 15px !important;
-        color: #ffffff !important;
+        color: #ffffff !important; /* Keeps the icon white */
         z-index: 10001 !important;
         margin: 0 !important;
     }
 
-    /* Pin the Moon Icon safely to the left of the Hamburger */
+    /* Pin the Moon Icon - PERFECTLY CENTERED VERTICALLY */
     .header .header-social-links {
         position: absolute !important;
-        top: 17px !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important; /* Magic vertical centering */
         right: 65px !important;
         z-index: 10001 !important;
         padding: 0 !important;
+        margin: 0 !important;
+        display: flex;
+        align-items: center;
     }
 
     /* Drop the dark shadow overlay BELOW the pink header */
