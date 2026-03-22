@@ -26,18 +26,18 @@
   --surface-color: #ffffff;
   --contrast-color: #ffffff;
 
-  --header-bg-color: #F17FC5; /* Your custom pink header/footer! */
+  --header-bg-color: #F17FC5; /* Pink header/footer! */
   --header-text-color: #ffffff;
 }
 
 /* Nav Menu Colors */
 :root {
   --nav-color: #ffffff;
-  --nav-hover-color: #8A0A5B;
-  --nav-mobile-background-color: #F17FC5; /* Match mobile menu to header */
+  --nav-hover-color: #8A0A5B; /* Dark berry hover */
+  --nav-mobile-background-color: #F17FC5;
   --nav-dropdown-background-color: #ffffff;
   --nav-dropdown-color: #444444;
-  --nav-dropdown-hover-color: #F17FC5; /* Match dropdown hover to header */
+  --nav-dropdown-hover-color: #F17FC5;
 }
 /* Color Presets */
 .light-background {
@@ -145,7 +145,7 @@ h6 {
 --------------------------------------------------------------*/
 .header {
   color: var(--header-text-color);
-  background-color: var(--header-bg-color); /* Uses our new pink header color! */
+  background-color: var(--header-bg-color); /* Uses Pink Variable */
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
@@ -161,11 +161,7 @@ h6 {
   margin-right: 8px;
 }
 
-/* Nuke any default template colors - FORCE logo to be white */
-.header .logo,
-.header .logo *,
-.header .logo h1,
-.header .logo a {
+.header .logo, .header .logo *, .header .logo h1, .header .logo a {
   font-size: 32px;
   margin: 0;
   font-weight: 300;
@@ -350,7 +346,7 @@ h6 {
     padding-right: 45px;
   }
 
-  /* 2. Force Hamburger button to white so it's visible on pink */
+@media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: #ffffff !important;
     font-size: 28px;
@@ -359,6 +355,7 @@ h6 {
     cursor: pointer;
     transition: color 0.3s;
   }
+}
 
   .navmenu {
     padding: 0;
@@ -482,8 +479,8 @@ h6 {
 # Global Footer
 --------------------------------------------------------------*/
 .footer {
-  color: #ffffff; /* White text for contrast */
-  background-color: var(--header-bg-color); /* Matches the Header perfectly! */
+  color: #ffffff;
+  background-color: var(--header-bg-color); /* Uses Pink Variable */
   font-size: 14px;
   padding: 40px 0;
   position: relative;
