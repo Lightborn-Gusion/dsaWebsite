@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Graph Visualization</h2>
+                        <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+                            <video controls autoplay loop muted>
+                                <source th:src="@{/assets/video/graph.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is a Graph?</h4>
+                            <p>A Graph is a non-linear data structure consisting of <strong>vertices</strong> (or nodes) and <strong>edges</strong> (the lines connecting the nodes). Unlike trees, graphs do not have a specific "root" and can contain cycles or loops.</p>
+                            <p><strong>Key Concept:</strong> Graphs are used to model real-world networks. They can be <em>directed</em> (one-way streets) or <em>undirected</em> (two-way streets), and edges can carry <em>weights</em> (distances or costs). They are the backbone of GPS routing, social network suggestions, and the internet itself.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

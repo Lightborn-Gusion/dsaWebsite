@@ -1,0 +1,90 @@
+/* 1. Default Animation Box (Light Mode) */
+.viz-box {
+    background-color: #fff0f5; /* Very pale pink background */
+    border: 1px solid #f8bbd0; /* Soft pink border */
+    height: 350px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    padding: 20px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* 2. Dark Mode Override for Animation Box */
+body.dark-mode .viz-box {
+    background-color: #0a0a0a; /* Deep black background */
+    border: 1px solid #333; /* Dark gray border */
+}
+
+/* Individual Bars (For Bubble Sort) */
+.bar {
+    width: 35px;
+    background-color: #cccccc; /* Neutral Gray */
+    border-radius: 3px 3px 0 0;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.bar.active {
+    background-color: #ffc107; /* Yellow for scanning/comparing */
+}
+.bar.sorted {
+    background-color: var(--accent-color); /* Pink for sorted! */
+}
+
+.viz-box.center-items {
+    align-items: center;
+}
+
+/* Number Blocks (For Selection/Insertion/Search) */
+.num-box {
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
+    font-family: monospace;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+    flex-shrink: 0;
+    transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+/* Light mode override for number blocks */
+body:not(.dark-mode) .num-box {
+    background-color: #ffffff; /* Crisp white boxes */
+    color: #222;
+    border-color: #ccc;
+}
+
+/* State Colors for Number Blocks */
+.num-box.active {
+    background-color: #ffc107 !important; /* Yellow (Scanning) */
+    border-color: #ffc107 !important;
+    color: #121212 !important;
+}
+
+.num-box.min {
+    background-color: #0dcaf0 !important; /* Cyan (Current Minimum - Contrasts well with pink) */
+    border-color: #0dcaf0 !important;
+    color: #121212 !important;
+}
+
+.num-box.sorted {
+    background-color: #e83e8c !important; /* Vivid Pink (Locked/Sorted) */
+    border-color: #e83e8c !important;
+    color: white !important;
+}
+
+/* Make the sorted pink slightly brighter in dark mode */
+body.dark-mode .num-box.sorted {
+    background-color: #ff66a3 !important;
+    border-color: #ff66a3 !important;
+    color: #050505 !important;
+}

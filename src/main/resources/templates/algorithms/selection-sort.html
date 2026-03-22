@@ -1,0 +1,40 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+
+<div layout:fragment="content">
+
+    <link rel="stylesheet" th:href="@{/assets/css/algo.css}">
+
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Selection Sorting Visualization</h2>
+
+                        <div class="viz-box center-items shadow rounded mx-auto mb-4" id="selection-container" style="max-width: 800px;">
+                        </div>
+
+                        <button id="startBtn" class="btn btn-primary px-4 py-2 rounded-pill fw-bold">
+                            <i class="bi bi-play-fill"></i> Run Animation
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is Selection Sort?</h4>
+                            <p>Selection Sort is an in-place comparison sorting algorithm. It divides the input list into two parts: a sorted sublist built up from left to right, and a sublist of the remaining unsorted items.</p>
+                            <p><strong>Key Concept:</strong> The algorithm repeatedly scans the unsorted part to find the absolute minimum (smallest) element, and then swaps it into the correct position at the end of the sorted portion. Like Bubble Sort, it also has a time complexity of <strong>O(n²)</strong>, making it inefficient for large lists, but very easy to understand.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script th:src="@{/assets/js/selection-sort.js}"></script>
+</div>
+</body>

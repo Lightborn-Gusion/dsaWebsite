@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">List Visualization</h2>
+                        <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+                            <video controls autoplay loop muted>
+                                <source th:src="@{/assets/video/list.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is a List?</h4>
+                            <p>A List is an ordered collection of elements. Unlike standard arrays, many List implementations (like ArrayList) handle resizing automatically as you add or remove items.</p>
+                            <p><strong>Key Concept:</strong> Lists provide high flexibility for managing collections of data where the number of elements may change over time.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

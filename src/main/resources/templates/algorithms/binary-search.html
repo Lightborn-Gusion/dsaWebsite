@@ -1,0 +1,40 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+
+<div layout:fragment="content">
+    <link rel="stylesheet" th:href="@{/assets/css/algo.css}">
+
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Binary Search Visualization</h2>
+                        <h4 class="text-primary mb-3" id="targetDisplay">Looking for: 60</h4>
+
+                        <div class="viz-box center-items shadow rounded mx-auto mb-4" id="binary-container" style="max-width: 800px;">
+                        </div>
+
+                        <button id="startBtn" class="btn btn-primary px-4 py-2 rounded-pill fw-bold">
+                            <i class="bi bi-play-fill"></i> Run Search
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is Binary Search?</h4>
+                            <p>Binary Search is a fast algorithm that finds the position of a target value within a <strong>sorted array</strong>.</p>
+                            <p><strong>Key Concept:</strong> It compares the target value to the middle element of the array. If they are not equal, the half in which the target cannot lie is eliminated, and the search continues on the remaining half. This gives it a blazing fast time complexity of <strong>O(log n)</strong>.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script th:src="@{/assets/js/binary-search.js}"></script>
+</div>
+</body>

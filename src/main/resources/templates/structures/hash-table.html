@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+  <section class="section mt-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+
+          <div class="text-center mb-5">
+            <h2 class="mb-4">Hash Table Visualization</h2>
+            <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+              <video controls autoplay loop muted>
+                <source th:src="@{/assets/video/hash-table.mp4}" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <div class="card shadow-sm">
+            <div class="card-body p-4">
+              <h4 class="border-bottom pb-2">What is a Hash Table?</h4>
+              <p>A Hash Table (or Hash Map) is a data structure used to store information in key-value pairs. It uses a mathematical algorithm called a <strong>Hash Function</strong> to take a key (like a username) and scramble it into a specific index number.</p>
+              <p><strong>Key Concept:</strong> Because the hash function tells the computer exactly which memory "bucket" to look in, Hash Tables don't need to search through the data. This gives them lightning-fast, near-instantaneous speeds of <strong>O(1)</strong> for looking up, inserting, or deleting data. They are heavily used in databases and caching systems.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>

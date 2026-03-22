@@ -1,0 +1,77 @@
+<header th:fragment="header" id="header" class="header d-flex align-items-center light-background sticky-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+        <a th:href="@{/}" class="logo d-flex align-items-center me-auto me-xl-0">
+            <h2 class="sitename">DSA</h2>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+
+                <li class="dropdown"><a href="#"><span>Data Structures</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#"><span>Linear</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li><a th:href="@{/array}">Arrays</a></li>
+                                <li><a th:href="@{/list}">List</a></li>
+                                <li><a th:href="@{/matrix}">Matrix</a></li>
+                                <li class="dropdown">
+                                    <a href="#"><span>Linked List</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                    <ul>
+                                        <li><a th:href="@{/singly}">Singly</a></li>
+                                        <li><a th:href="@{/doubly}">Doubly</a></li>
+                                        <li><a th:href="@{/circular-singly}">Circular Singly</a></li>
+                                        <li><a th:href="@{/circular-doubly}">Circular Doubly</a></li>
+                                    </ul>
+                                </li>
+                                <li><a th:href="@{/queue}">Queues</a></li>
+                                <li><a th:href="@{/stack}">Stacks</a></li>
+                                <li><a th:href="@{/maps}">Maps</a></li>
+                                <li><a th:href="@{/dictionaries}">Dictionaries</a></li>
+                                <li><a th:href="@{/tuples}">Tuples</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Non-Linear</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li><a th:href="@{/trees}">Trees</a></li>
+                                <li><a th:href="@{/graph}">Graph</a></li>
+                                <li><a th:href="@{/heap}">Heap</a></li>
+                                <li><a th:href="@{/hash-table}">Hash Table</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#"><span>Algorithms</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        <li class="dropdown">
+                            <a href="#"><span>Sorting</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li><a th:href="@{/bubble-sort}">Bubble Sorting</a></li>
+                                <li><a th:href="@{/selection-sort}">Selection Sorting</a></li>
+                                <li><a th:href="@{/insertion-sort}">Insertion Sort</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#"><span>Searching</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                                <li><a th:href="@{/linear-search}">Linear Search</a></li>
+                                <li><a th:href="@{/binary-search}">Binary Search</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <div class="header-social-links">
+            <button id="theme-toggle" class="btn btn-link text-dark p-0 me-2" type="button" aria-label="Toggle theme">
+                <i id="theme-icon" class="bi bi-moon-fill"></i>
+            </button>
+        </div>
+
+    </div>
+</header>

@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Heap Visualization</h2>
+                        <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+                            <video controls autoplay loop muted>
+                                <source th:src="@{/assets/video/heap.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is a Heap?</h4>
+                            <p>A Heap is a special kind of complete binary tree that satisfies the "Heap Property." In a <strong>Max-Heap</strong>, the parent node is always strictly greater than or equal to its child nodes. In a <strong>Min-Heap</strong>, the parent is always smaller.</p>
+                            <p><strong>Key Concept:</strong> Because of this strict ordering, the largest (or smallest) element is always instantly accessible at the very top (the root). This makes heaps the absolute best data structure for building Priority Queues and powers the highly efficient Heap Sort algorithm.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

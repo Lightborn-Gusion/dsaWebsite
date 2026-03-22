@@ -1,0 +1,77 @@
+/*--------------------------------------------------------------
+# Dark Mode Variable Overrides (Sleek Black + Neon Pink)
+--------------------------------------------------------------*/
+body.dark-mode {
+    /* Global Colors Override */
+    --background-color: #121212;
+    --default-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --surface-color: #1e1e1e;
+    --contrast-color: #050505;
+
+    --accent-color: #ff4081;
+
+    /* ADD THIS: Force the variable to be black just in case */
+    --header-bg-color: #050505;
+    --header-text-color: #ffffff;
+
+    /* Nav Menu Colors Override */
+    --nav-color: #e0e0e0;
+    --nav-hover-color: #ff4081;
+    --nav-mobile-background-color: #050505;
+    --nav-dropdown-background-color: #1e1e1e;
+    --nav-dropdown-color: #e0e0e0;
+    --nav-dropdown-hover-color: #ff4081;
+}
+
+/* STRICT OVERRIDE: Bulletproof Black Header and Footer */
+/* Adding #header and #footer IDs forces this to override Bootstrap's bg-white */
+body.dark-mode #header,
+body.dark-mode #footer,
+body.dark-mode .header,
+body.dark-mode .footer {
+    background-color: #050505 !important; /* Pure deep black */
+    color: #ffffff !important;
+    border-color: #222 !important;
+}
+
+/* Fix the footer social icons in Dark Mode */
+body.dark-mode #footer .social-links a,
+body.dark-mode .footer .social-links a {
+    border-color: #444;
+    color: #e0e0e0;
+}
+body.dark-mode #footer .social-links a:hover,
+body.dark-mode .footer .social-links a:hover {
+    background-color: var(--accent-color);
+    color: #050505;
+    border-color: var(--accent-color);
+}
+
+body.dark-mode .card h4.border-bottom {
+    color: #ffffff !important;
+    border-bottom-color: #333 !important;
+}
+
+body.dark-mode .card,
+body.dark-mode .card-body,
+body.dark-mode .info-wrap,
+body.dark-mode .php-email-form,
+body.dark-mode .bg-white {
+    background-color: #1e1e1e !important; /* Forces all card layers to dark gray */
+    color: #ffffff !important;
+}
+
+body.dark-mode .card strong {
+    color: var(--accent-color) !important;
+}
+
+/* Theme Icons */
+#theme-icon {
+    color: #ffffff;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode #theme-icon {
+    color: #ffde00; /* Yellow sun */
+}

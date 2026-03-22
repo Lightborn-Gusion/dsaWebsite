@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Circular Doubly Linked List</h2>
+                        <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+                            <video controls autoplay loop muted>
+                                <source th:src="@{/assets/video/circular-doubly.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is a Circular Doubly Linked List?</h4>
+                            <p>This is the most complex variation. It combines the features of a doubly linked list (two-way navigation) with a circular linked list (no null ends).</p>
+                            <p><strong>Key Concept:</strong> The last node's <strong>next</strong> pointer connects to the first node, AND the first node's <strong>previous</strong> pointer connects to the last node. This allows seamless forward and backward traversal in a continuous loop, making it highly efficient for advanced data manipulation!</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

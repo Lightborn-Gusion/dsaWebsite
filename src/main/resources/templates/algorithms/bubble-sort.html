@@ -1,0 +1,40 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+
+<div layout:fragment="content">
+
+    <link rel="stylesheet" th:href="@{/assets/css/algo.css}">
+
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Bubble Sorting Visualization</h2>
+
+                        <div class="viz-box shadow rounded mx-auto mb-4" id="bars-container" style="max-width: 800px;">
+                        </div>
+
+                        <button id="startBtn" class="btn btn-primary px-4 py-2 rounded-pill fw-bold">
+                            <i class="bi bi-play-fill"></i> Run Animation
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is Bubble Sort?</h4>
+                            <p>Bubble Sort is a simple sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order.</p>
+                            <p><strong>Key Concept:</strong> The pass through the list is repeated until the list is sorted. The algorithm gets its name because smaller elements "bubble" to the top of the list, while larger elements sink to the bottom. It has a time complexity of <strong>O(n²)</strong>.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script th:src="@{/assets/js/bubble-sort.js}"></script>
+</div>
+</body>

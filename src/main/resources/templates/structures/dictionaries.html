@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Dictionary Visualization</h2>
+                        <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+                            <video controls autoplay loop muted>
+                                <source th:src="@{/assets/video/dictionary.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is a Dictionary?</h4>
+                            <p>A Dictionary is a general-purpose data structure for storing a group of objects. It has a set of keys and each key has a single associated value. When presented with a key, the dictionary will return the associated value.</p>
+                            <p><strong>Key Concept:</strong> Much like a real-life dictionary where a "word" (key) maps to a "definition" (value), this structure allows for efficient lookups by key rather than index.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

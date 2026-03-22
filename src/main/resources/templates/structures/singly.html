@@ -1,0 +1,33 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+<div layout:fragment="content">
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Singly Linked List Visualization</h2>
+                        <div class="ratio ratio-16x9 shadow rounded mx-auto" style="max-width: 800px;">
+                            <video controls autoplay loop muted>
+                                <source th:src="@{/assets/video/singly.mp4}" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is a Singly Linked List?</h4>
+                            <p>A Singly Linked List is a linear data structure made up of interconnected nodes. Each node contains two parts: the <strong>data</strong> and a <strong>reference (or pointer)</strong> to the next node in the sequence.</p>
+                            <p><strong>Key Concept:</strong> Traversal is strictly one-way (unidirectional). You can only move forward starting from the first node (the Head) until you reach the last node (the Tail), which points to null. It allows for dynamic memory allocation, making insertions and deletions more efficient than in traditional arrays.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</body>

@@ -1,0 +1,40 @@
+<body xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/master}">
+
+<div layout:fragment="content">
+
+    <link rel="stylesheet" th:href="@{/assets/css/algo.css}">
+
+    <section class="section mt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+
+                    <div class="text-center mb-5">
+                        <h2 class="mb-4">Insertion Sorting Visualization</h2>
+
+                        <div class="viz-box center-items shadow rounded mx-auto mb-4" id="insertion-container" style="max-width: 800px;">
+                        </div>
+
+                        <button id="startBtn" class="btn btn-primary px-4 py-2 rounded-pill fw-bold">
+                            <i class="bi bi-play-fill"></i> Run Animation
+                        </button>
+                    </div>
+
+                    <div class="card shadow-sm">
+                        <div class="card-body p-4">
+                            <h4 class="border-bottom pb-2">What is Insertion Sort?</h4>
+                            <p>Insertion Sort is a simple sorting algorithm that builds the final sorted array one item at a time. It is much like sorting playing cards in your hands.</p>
+                            <p><strong>Key Concept:</strong> The algorithm takes one element at a time (the "key") and compares it to the elements before it. If the previous elements are larger, it shifts them to the right to make room, and then <em>inserts</em> the key into its correct spot. While it also has a time complexity of <strong>O(n²)</strong>, it is highly efficient for small data sets or lists that are already mostly sorted.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script th:src="@{/assets/js/insertion-sort.js}"></script>
+</div>
+</body>
