@@ -1,5 +1,5 @@
 /*--------------------------------------------------------------
-# Dark Mode Variable Overrides (Sleek Black + Neon Pink)
+# 1. Dark Mode Variable Overrides (Sleek Black + Neon Pink)
 --------------------------------------------------------------*/
 body.dark-mode {
     --background-color: #121212;
@@ -30,14 +30,6 @@ body.dark-mode .page-title {
     background-color: var(--background-color) !important;
 }
 
-body.dark-mode .hero:before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 2;
-}
-
 /* Dark Mode Cards */
 body.dark-mode .card,
 body.dark-mode .card-body,
@@ -59,7 +51,32 @@ body.dark-mode .card strong {
     color: var(--accent-color) !important;
 }
 
-/* Theme Toggle Icon */
+/*--------------------------------------------------------------
+# 2. Light Mode Overrides (Forces the Pink Theme safely)
+--------------------------------------------------------------*/
+body:not(.dark-mode) {
+    --nav-mobile-background-color: #F17FC5;
+    --nav-dropdown-hover-color: #F17FC5;
+    --nav-hover-color: #8A0A5B; /* Dark berry hover */
+}
+
+body:not(.dark-mode) .header,
+body:not(.dark-mode) .footer {
+    background-color: #F17FC5 !important; /* Custom Pink Header/Footer */
+    border: none !important;
+}
+
+/* Force Logo and Default Nav Links to White */
+.header .logo h1,
+.header .logo a,
+body:not(.dark-mode) .navmenu a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/*--------------------------------------------------------------
+# 3. Theme Toggle & Mobile Menu Overlap Fix
+--------------------------------------------------------------*/
 #theme-toggle {
     border: none;
     background: none;
@@ -79,9 +96,22 @@ body.dark-mode #theme-icon {
     color: #ffde00; /* Yellow in dark mode */
 }
 
-/* =======================================================================
-   ANIMATIONS (CRITICAL FIX: 'transform: none' frees the mobile menu)
-   ======================================================================= */
+/* Prevent Moon and Hamburger Icon from overlapping */
+@media (max-width: 1199px) {
+    .header .header-social-links {
+        padding-right: 50px !important; /* Push moon left */
+    }
+    .mobile-nav-toggle {
+        color: #ffffff !important; /* Make hamburger white on pink header */
+    }
+    .mobile-nav-active .mobile-nav-toggle {
+        color: #ffffff !important; /* Make X white */
+    }
+}
+
+/*--------------------------------------------------------------
+# 4. Desktop-Only Animations (Fixes the Mobile Trap Bug)
+--------------------------------------------------------------*/
 main.fade-out-exit {
     opacity: 0;
     transition: opacity 0.5s ease-in-out !important;
@@ -89,7 +119,7 @@ main.fade-out-exit {
 
 @keyframes slideHeaderDown {
     0% { transform: translateY(-100%); }
-    100% { transform: none; } /* 'none' stops the mobile menu trap! */
+    100% { transform: none; }
 }
 
 @keyframes slideFooterUp {
@@ -97,21 +127,21 @@ main.fade-out-exit {
     100% { transform: none; }
 }
 
-/* Notice we removed the permanent 'transform: translateY(0)' from here */
-.header {
-    animation: slideHeaderDown 0.6s ease-out forwards;
-}
+/* ONLY animate on Desktop. CSS Animations break mobile 'position: fixed' menus! */
+@media (min-width: 1200px) {
+    .header {
+        animation: slideHeaderDown 0.6s ease-out forwards;
+    }
+    .footer {
+        animation: slideFooterUp 0.6s ease-out forwards;
+    }
 
-.footer {
-    animation: slideFooterUp 0.6s ease-out forwards;
-}
-
-.header.slide-up-exit {
-    transform: translateY(-100%) !important;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
-}
-
-.footer.slide-down-exit {
-    transform: translateY(100%) !important;
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    .header.slide-up-exit {
+        transform: translateY(-100%) !important;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+    .footer.slide-down-exit {
+        transform: translateY(100%) !important;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
 }
