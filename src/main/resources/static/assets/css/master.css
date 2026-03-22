@@ -2,50 +2,52 @@
 # Dark Mode Variable Overrides (Sleek Black + Neon Pink)
 --------------------------------------------------------------*/
 body.dark-mode {
-    /* Global Colors Override */
     --background-color: #121212;
     --default-color: #e0e0e0;
     --heading-color: #ffffff;
     --surface-color: #1e1e1e;
     --contrast-color: #050505;
-
     --accent-color: #ff4081;
 
-    /* ADD THIS: Force the variable to be black just in case */
-    --header-bg-color: #050505;
-    --header-text-color: #ffffff;
-
-    /* Nav Menu Colors Override */
     --nav-color: #e0e0e0;
     --nav-hover-color: #ff4081;
     --nav-mobile-background-color: #050505;
     --nav-dropdown-background-color: #1e1e1e;
     --nav-dropdown-color: #e0e0e0;
-    --nav-dropdown-hover-color: #ff4081;
 }
 
-/* STRICT OVERRIDE: Bulletproof Black Header and Footer */
-/* Adding #header and #footer IDs forces this to override Bootstrap's bg-white */
-body.dark-mode #header,
-body.dark-mode #footer,
+/* Force Header and Footer to be Black in Dark Mode */
 body.dark-mode .header,
 body.dark-mode .footer {
-    background-color: #050505 !important; /* Pure deep black */
+    background-color: #050505 !important;
     color: #ffffff !important;
     border-color: #222 !important;
 }
 
-/* Fix the footer social icons in Dark Mode */
-body.dark-mode #footer .social-links a,
-body.dark-mode .footer .social-links a {
-    border-color: #444;
-    color: #e0e0e0;
+/* Dark Mode Backgrounds */
+body.dark-mode .light-background,
+body.dark-mode .page-title {
+    background-color: var(--background-color) !important;
 }
-body.dark-mode #footer .social-links a:hover,
-body.dark-mode .footer .social-links a:hover {
-    background-color: var(--accent-color);
-    color: #050505;
-    border-color: var(--accent-color);
+
+body.dark-mode .hero:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 2;
+}
+
+/* Dark Mode Cards */
+body.dark-mode .card,
+body.dark-mode .card-body,
+body.dark-mode .info-wrap,
+body.dark-mode .php-email-form,
+body.dark-mode .bg-white {
+    background-color: #1e1e1e !important;
+    border: 1px solid #333 !important;
+    color: #ffffff !important;
+    box-shadow: 0px 4px 20px rgba(255, 64, 129, 0.08) !important;
 }
 
 body.dark-mode .card h4.border-bottom {
@@ -53,25 +55,63 @@ body.dark-mode .card h4.border-bottom {
     border-bottom-color: #333 !important;
 }
 
-body.dark-mode .card,
-body.dark-mode .card-body,
-body.dark-mode .info-wrap,
-body.dark-mode .php-email-form,
-body.dark-mode .bg-white {
-    background-color: #1e1e1e !important; /* Forces all card layers to dark gray */
-    color: #ffffff !important;
-}
-
 body.dark-mode .card strong {
     color: var(--accent-color) !important;
 }
 
-/* Theme Icons */
+/* Theme Toggle Icon */
+#theme-toggle {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #theme-icon {
-    color: #ffffff;
+    color: #ffffff; /* White in light mode */
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode #theme-icon {
-    color: #ffde00; /* Yellow sun */
+    color: #ffde00; /* Yellow in dark mode */
+}
+
+/* =======================================================================
+   ANIMATIONS (CRITICAL FIX: 'transform: none' frees the mobile menu)
+   ======================================================================= */
+main.fade-out-exit {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out !important;
+}
+
+@keyframes slideHeaderDown {
+    0% { transform: translateY(-100%); }
+    100% { transform: none; } /* 'none' stops the mobile menu trap! */
+}
+
+@keyframes slideFooterUp {
+    0% { transform: translateY(100%); }
+    100% { transform: none; }
+}
+
+/* Notice we removed the permanent 'transform: translateY(0)' from here */
+.header {
+    animation: slideHeaderDown 0.6s ease-out forwards;
+}
+
+.footer {
+    animation: slideFooterUp 0.6s ease-out forwards;
+}
+
+.header.slide-up-exit {
+    transform: translateY(-100%) !important;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.footer.slide-down-exit {
+    transform: translateY(100%) !important;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
