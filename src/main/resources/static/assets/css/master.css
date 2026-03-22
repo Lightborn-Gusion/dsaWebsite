@@ -52,17 +52,17 @@ body.dark-mode .card strong {
 }
 
 /*--------------------------------------------------------------
-# 2. Light Mode Overrides (Forces the Pink Theme safely)
+# 2. Light Mode Overrides (Forces the Pink Theme)
 --------------------------------------------------------------*/
 body:not(.dark-mode) {
     --nav-mobile-background-color: #F17FC5;
     --nav-dropdown-hover-color: #F17FC5;
-    --nav-hover-color: #8A0A5B; /* Dark berry hover */
+    --nav-hover-color: #8A0A5B;
 }
 
 body:not(.dark-mode) .header,
 body:not(.dark-mode) .footer {
-    background-color: #F17FC5 !important; /* Custom Pink Header/Footer */
+    background-color: #F17FC5 !important;
     border: none !important;
 }
 
@@ -75,7 +75,7 @@ body:not(.dark-mode) .navmenu a {
 }
 
 /*--------------------------------------------------------------
-# 3. Theme Toggle & Mobile Menu Overlap Fix
+# 3. Theme Toggle Styles
 --------------------------------------------------------------*/
 #theme-toggle {
     border: none;
@@ -88,25 +88,12 @@ body:not(.dark-mode) .navmenu a {
 }
 
 #theme-icon {
-    color: #ffffff; /* White in light mode */
+    color: #ffffff;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode #theme-icon {
-    color: #ffde00; /* Yellow in dark mode */
-}
-
-/* Prevent Moon and Hamburger Icon from overlapping */
-@media (max-width: 1199px) {
-    .header .header-social-links {
-        padding-right: 50px !important; /* Push moon left */
-    }
-    .mobile-nav-toggle {
-        color: #ffffff !important; /* Make hamburger white on pink header */
-    }
-    .mobile-nav-active .mobile-nav-toggle {
-        color: #ffffff !important; /* Make X white */
-    }
+    color: #ffde00;
 }
 
 /*--------------------------------------------------------------
@@ -127,7 +114,6 @@ main.fade-out-exit {
     100% { transform: none; }
 }
 
-/* ONLY animate on Desktop. CSS Animations break mobile 'position: fixed' menus! */
 @media (min-width: 1200px) {
     .header {
         animation: slideHeaderDown 0.6s ease-out forwards;
@@ -135,7 +121,6 @@ main.fade-out-exit {
     .footer {
         animation: slideFooterUp 0.6s ease-out forwards;
     }
-
     .header.slide-up-exit {
         transform: translateY(-100%) !important;
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -143,5 +128,42 @@ main.fade-out-exit {
     .footer.slide-down-exit {
         transform: translateY(100%) !important;
         transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    }
+}
+
+/*--------------------------------------------------------------
+# 5. MOBILE MENU & OVERLAP FIX (BULLETPROOF)
+--------------------------------------------------------------*/
+@media (max-width: 1199px) {
+    /* Create a permanent anchor point so icons can't fly away */
+    .header {
+        position: relative !important;
+    }
+
+    /* Pin the Hamburger Menu permanently to the Top Right */
+    .mobile-nav-toggle,
+    .mobile-nav-active .mobile-nav-toggle {
+        position: absolute !important;
+        top: 20px !important;
+        right: 15px !important;
+        color: #ffffff !important;
+        z-index: 10001 !important;
+        margin: 0 !important;
+    }
+
+    /* Pin the Moon Icon safely to the left of the Hamburger */
+    .header .header-social-links {
+        position: absolute !important;
+        top: 17px !important;
+        right: 65px !important;
+        z-index: 10001 !important;
+        padding: 0 !important;
+    }
+
+    /* Drop the dark shadow overlay BELOW the pink header */
+    .mobile-nav-active .navmenu {
+        top: 66px !important;
+        height: calc(100vh - 66px) !important;
+        background: rgba(0, 0, 0, 0.7) !important;
     }
 }
