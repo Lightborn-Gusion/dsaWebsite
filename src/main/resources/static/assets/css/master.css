@@ -2,40 +2,61 @@
 # 1. Dark Mode Variable Overrides (Sleek Black + Neon Pink)
 --------------------------------------------------------------*/
 body.dark-mode {
-    --background-color: #121212;
-    --default-color: #e0e0e0;
-    --heading-color: #ffffff;
-    --surface-color: #1e1e1e;
-    --contrast-color: #050505;
-    --accent-color: #ff4081;
+    --background-color: #121212 !important;
+    --default-color: #e0e0e0 !important;
+    --heading-color: #ffffff !important;
+    --surface-color: #1e1e1e !important;
+    --contrast-color: #050505 !important;
+    --accent-color: #ff4081 !important;
 
-    --nav-color: #e0e0e0;
-    --nav-hover-color: #ff4081;
-    --nav-mobile-background-color: #050505;
-    --nav-dropdown-background-color: #1e1e1e;
-    --nav-dropdown-color: #e0e0e0;
+    --nav-color: #e0e0e0 !important;
+    --nav-hover-color: #ff4081 !important;
+    --nav-mobile-background-color: #050505 !important;
+    --nav-dropdown-background-color: #1e1e1e !important;
+    --nav-dropdown-color: #e0e0e0 !important;
+
+    background-color: #121212 !important;
+    color: #e0e0e0 !important;
 }
 
-/* Force Header and Footer to be Black in Dark Mode */
+/* BULLETPROOF: Force Header and Footer to be Black in Dark Mode */
+/* Using #header and #footer guarantees it overrides Bootstrap's defaults */
+body.dark-mode #header,
 body.dark-mode .header,
+body.dark-mode #footer,
 body.dark-mode .footer {
     background-color: #050505 !important;
     color: #ffffff !important;
-    border-color: #222 !important;
+    border-bottom: 1px solid #222 !important;
+    border-top: 1px solid #222 !important;
 }
 
-/* Dark Mode Backgrounds */
+/* Force Desktop Nav Links to Light Grey in Dark Mode */
+body.dark-mode .navmenu a,
+body.dark-mode .navmenu > ul > li > a {
+    color: #e0e0e0 !important;
+}
+body.dark-mode .navmenu a:hover,
+body.dark-mode .navmenu .active,
+body.dark-mode .navmenu .active:focus {
+    color: #ff4081 !important; /* Neon Pink hover */
+}
+
+/* Dark Mode Background Sections */
 body.dark-mode .light-background,
-body.dark-mode .page-title {
-    background-color: var(--background-color) !important;
+body.dark-mode .page-title,
+body.dark-mode section {
+    background-color: #121212 !important;
 }
 
-/* Dark Mode Cards */
+/* BULLETPROOF: Dark Mode Cards and Stubborn White Boxes */
 body.dark-mode .card,
 body.dark-mode .card-body,
 body.dark-mode .info-wrap,
 body.dark-mode .php-email-form,
-body.dark-mode .bg-white {
+body.dark-mode .bg-white,
+body.dark-mode div[style*="background-color: white"],
+body.dark-mode div[style*="background-color: #ffffff"] {
     background-color: #1e1e1e !important;
     border: 1px solid #333 !important;
     color: #ffffff !important;
@@ -47,10 +68,12 @@ body.dark-mode .card h4.border-bottom {
     border-bottom-color: #333 !important;
 }
 
-body.dark-mode .card strong {
+/* Make bold text pink in dark mode */
+body.dark-mode .card strong,
+body.dark-mode b,
+body.dark-mode strong {
     color: var(--accent-color) !important;
 }
-
 /*--------------------------------------------------------------
 # 2. Light Mode Overrides (Forces the Pink Theme)
 --------------------------------------------------------------*/
