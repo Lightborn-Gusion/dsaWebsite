@@ -345,23 +345,19 @@ h6 {
 
 /* Mobile Navigation */
 @media (max-width: 1199px) {
-
-  /* 1. Push the Moon icon left so it doesn't overlap the Menu button! */
+  /* 1. Make room for the moon icon so it doesn't overlap */
   .header .header-social-links {
-    padding-right: 50px;
+    padding-right: 45px;
   }
 
-  /* 2. Lock the Hamburger/Close button to the top right */
+  /* 2. Force Hamburger button to white so it's visible on pink */
   .mobile-nav-toggle {
-    color: #ffffff !important; /* Force it to be white */
+    color: #ffffff !important;
     font-size: 28px;
     line-height: 0;
+    margin-right: 10px;
     cursor: pointer;
     transition: color 0.3s;
-    position: absolute;
-    right: 15px;
-    top: 22px;
-    z-index: 9999;
   }
 
   .navmenu {
@@ -369,18 +365,18 @@ h6 {
     z-index: 9997;
   }
 
-  /* 3. The actual popup menu box */
+  /* 3. The popup menu box */
   .navmenu ul {
     display: none;
     list-style: none;
     position: absolute;
-    inset: 15px 20px 20px 20px; /* Nice padding below the header */
+    inset: 20px 20px 20px 20px;
     padding: 10px 0;
     margin: 0;
-    border-radius: 8px; /* Slightly rounder corners */
+    border-radius: 6px;
     background-color: var(--nav-mobile-background-color);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2); /* Deep shadow for depth */
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.2);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
@@ -388,8 +384,8 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: #ffffff; /* White text on the mobile menu */
-    padding: 12px 20px;
+    color: var(--nav-dropdown-color);
+    padding: 10px 20px;
     font-family: var(--nav-font);
     font-size: 17px;
     font-weight: 500;
@@ -412,15 +408,26 @@ h6 {
     justify-content: center;
     border-radius: 50%;
     transition: 0.3s;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
   }
 
   .navmenu a i:hover,
-  .navmenu a:focus i:hover,
+  .navmenu a:focus i:hover {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: #ffd9e8; /* Soft pink hover text */
+    color: var(--nav-dropdown-hover-color);
+  }
+
+  .navmenu .active i,
+  .navmenu .active:focus i {
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    transform: rotate(180deg);
   }
 
   .navmenu .dropdown ul {
@@ -429,25 +436,44 @@ h6 {
     z-index: 99;
     padding: 10px 0;
     margin: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.1); /* Darken dropdown slightly */
-    border: none;
-    box-shadow: none;
+    background-color: var(--nav-dropdown-background-color);
+    transition: all 0.5s ease-in-out;
+  }
+
+  .navmenu .dropdown ul ul {
+    background-color: rgba(33, 37, 41, 0.1);
+  }
+
+  .navmenu .dropdown>.dropdown-active {
+    display: block;
+    background-color: rgba(33, 37, 41, 0.03);
   }
 
   .mobile-nav-active {
     overflow: hidden;
   }
 
-  /* 4. The Shadow Overlay - Start it BELOW the header! */
+  /* 4. The 'Close/X' Button Active State */
+  .mobile-nav-active .mobile-nav-toggle {
+    color: #ffffff !important;
+    position: absolute;
+    font-size: 32px;
+    top: 15px;
+    right: 15px;
+    margin-right: 0;
+    z-index: 9999;
+  }
+
+  /* 5. The Shadow Overlay Fix: Start it BELOW the header (70px) */
   .mobile-nav-active .navmenu {
     position: fixed;
     overflow: hidden;
-    inset: 68px 0 0 0; /* 68px pushes it down past your header */
-    background: rgba(0, 0, 0, 0.6); /* Dim the body content, not the header */
+    inset: 70px 0 0 0; /* Pushes the shadow down so the header stays pink */
+    background: rgba(0, 0, 0, 0.6);
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu > ul {
+  .mobile-nav-active .navmenu>ul {
     display: block;
   }
 }
@@ -1439,10 +1465,12 @@ section,
 }
 
 @keyframes slideDownIn {
-  to { transform: translateY(0); }
+  from { transform: translateY(-100%); }
+  to { transform: none; }
 }
 @keyframes slideUpIn {
-  to { transform: translateY(0); }
+  from { transform: translateY(100%); }
+  to { transform: none; }
 }
 
 /* 2. Exit Animations (Triggered by JavaScript when clicking "Home") */
